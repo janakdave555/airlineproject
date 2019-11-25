@@ -1,5 +1,7 @@
 package com.lti.services;
 
+import java.util.List;
+
 import com.lti.model.Flights;
 
 public interface FlightServices
@@ -11,5 +13,5 @@ public interface FlightServices
 
 	void deleteFlights(Flights f);
 	public Flights findFlights(int flight_id);
-	public Flights findFlightsWithSector(int sector_id);
+	public List<Flights> findFlightsWithSector(int sector_id) ;
 }

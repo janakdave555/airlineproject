@@ -304,13 +304,13 @@ window.onclick = function(event) {
           background-size: 100% 100%;
         }
         </style>
-  <form action="/action_page.php">
+<form method="post" action="flightSearch">
   <div class="row">
     <div class="col-25">
       <label for="From"><b>From</b></label>
     </div>
     <div >
-      <input type="text" id="From" name="From" placeholder="From" style="align:left;width:400px">
+      <input type="text" id="From" name="source" placeholder="From" style="align:left;width:400px">
     </div>
   </div>
   <div>
@@ -318,9 +318,11 @@ window.onclick = function(event) {
       <label for="To"><b>To</b></label>
     </div>
     <div >
-      <input type="text" id="To" name="to" placeholder="To" style="align:left;width:400px">
+      <input type="text" id="To" name="destination" placeholder="To" style="align:left;width:400px">
     </div>
   </div>
+  
+  
   <div >
     <div >
       <label for="to"><b>Date</b></label>

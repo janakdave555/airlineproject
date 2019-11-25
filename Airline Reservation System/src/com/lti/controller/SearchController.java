@@ -1,5 +1,7 @@
 package com.lti.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,16 +66,24 @@ public class SearchController
 		System.out.println(sector_id);
 		
 		
-		Flights flight=flightServices.findFlightsWithSector(sector_id);
+		List<Flights> flight=flightServices.findFlightsWithSector(sector_id);
 		System.out.println(flight);
-		int flight_id=flight.getFlight_id();
-		System.out.println(flight_id);
+		List<Schedule>  schedule;
+		for(Flights f:flight)
+		{
+				int flight_id=f.getFlight_id();
+				System.out.println(flight_id);
+				
+				schedule=scheduleServices.findScheduleWithFlight(flight_id);
+				System.out.println(schedule);
+			
+		}
+
 		
 		
-		Schedule schedule=scheduleServices.findScheduleWithFlight(flight_id);
-		System.out.println(schedule);
-		int schedule_id=schedule.getSchedule_id();
-		System.out.println(schedule_id);
+	
+		//int schedule_id=schedule.getSchedule_id();
+		//System.out.println(schedule_id);
 		
 		return model;
 		

@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import com.lti.model.Flights;
 
 public interface FlightRepository {
@@ -10,5 +12,5 @@ public interface FlightRepository {
 
 	void deleteFlights(Flights f);
 	public Flights findFlights(int flight_id);
-	public Flights findFlightsWithSector(int sector_id);
+	public List<Flights> findFlightsWithSector(int sector_id) ;
 }

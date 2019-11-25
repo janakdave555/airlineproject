@@ -18,7 +18,7 @@
             <th>aircraft_business_seats</th>
              <th>aircraft_economy_seats</th>
         </tr>
-      <c:forEach items="${aircraftType}" var="AircraftType">
+      <c:forEach items="${list}" var="AircraftType">
 <tr>
           <td> ${AircraftType.aircraft_typeid}<br></td>
           <td>${AircraftType.aircraft_name}<br></td>

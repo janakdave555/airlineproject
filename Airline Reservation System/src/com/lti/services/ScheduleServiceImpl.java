@@ -1,5 +1,7 @@
 package com.lti.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +44,7 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	
-	public Schedule findScheduleWithFlight(int flight_id)
+	public List<Schedule> findScheduleWithFlight(int flight_id)
 	{
 		return scheduleRepository.findScheduleWithFlight(flight_id);
 	}

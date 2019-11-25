@@ -1,5 +1,7 @@
 package com.lti.services;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,7 +49,7 @@ public class FlightServicesImpl implements FlightServices
 	}
 
 	
-	public Flights findFlightsWithSector(int sector_id)
+	public List<Flights> findFlightsWithSector(int sector_id) 
 	{
 		return flightRepository.findFlightsWithSector(sector_id);
 	}

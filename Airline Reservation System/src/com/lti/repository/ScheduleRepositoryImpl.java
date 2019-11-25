@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -58,16 +60,24 @@ public class ScheduleRepositoryImpl implements ScheduleRepository
 
 
 	@Override
-	public Schedule findScheduleWithFlight(int flight_id) {
+	public List<Schedule> findScheduleWithFlight(int flight_id) {
 
 		Schedule schedule=new Schedule();
 		String q="select sch from Schedule sch where flight_id=?1";
 		TypedQuery<Schedule> query =em.createQuery(q,Schedule.class);
 		query.setParameter(1, flight_id);
 		
+		List<Schedule> list = query.getResultList();
+		for (Schedule li :list)
+		{
+			System.out.println("\n\n-----"+list);
+		}
 		
-		Schedule sch=query.getSingleResult();
-		return sch;
+		return list;
+		
+		
+	//	Schedule sch=query.getSingleResult();
+		//return sch;
 	}
 
 }

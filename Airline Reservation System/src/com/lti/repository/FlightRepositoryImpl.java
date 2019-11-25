@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
@@ -8,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.lti.model.Flights;
+import com.lti.model.Schedule;
 import com.lti.model.Sector;
 @Repository("flightRepository")
 
@@ -54,7 +57,7 @@ public class FlightRepositoryImpl implements FlightRepository
 
 
 	@Override
-	public Flights findFlightsWithSector(int sector_id) 
+	public List<Flights> findFlightsWithSector(int sector_id) 
 	{
 
 		
@@ -63,9 +66,17 @@ public class FlightRepositoryImpl implements FlightRepository
 		TypedQuery<Flights> query =em.createQuery(q,Flights.class);
 		query.setParameter(1, sector_id);
 		
+		List<Flights> flightlist = query.getResultList();
+		for (Flights li :flightlist)
+		{
+			System.out.println("\n\n-----"+flightlist);
+		}
 		
-		Flights f=query.getSingleResult();
-		return f;
+		return flightlist;
+		
+		
+//		Flights f=query.getSingleResult();
+	//	return f;
 	}
 	
 }
