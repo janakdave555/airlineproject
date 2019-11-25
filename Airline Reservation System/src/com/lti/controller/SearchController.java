@@ -35,7 +35,8 @@ public class SearchController
 	@Autowired
 	ScheduleService scheduleServices;
 
-	
+	List<Flights> flight;
+	List<Schedule>  schedule;
 	@RequestMapping(value="/flightSearch",method=RequestMethod.POST)
 	public ModelAndView flightSearch(@RequestParam String source,@RequestParam String destination)
 	{
@@ -66,9 +67,9 @@ public class SearchController
 		System.out.println(sector_id);
 		
 		
-		List<Flights> flight=flightServices.findFlightsWithSector(sector_id);
+		 flight=flightServices.findFlightsWithSector(sector_id);
 		System.out.println(flight);
-		List<Schedule>  schedule;
+		
 		for(Flights f:flight)
 		{
 				int flight_id=f.getFlight_id();
@@ -77,18 +78,20 @@ public class SearchController
 				schedule=scheduleServices.findScheduleWithFlight(flight_id);
 				System.out.println(schedule);
 			
+				
+				
+			}
+		if(schedule==null)
+		{
+			model=new ModelAndView("addfailed");
 		}
-
+		else
+		{
+			System.out.println("#################"+schedule);
+			model=new ModelAndView("scheduleShow");
+			model.addObject("schedule", schedule);
+		}
 		
-		
-	
-		//int schedule_id=schedule.getSchedule_id();
-		//System.out.println(schedule_id);
-		
-		return model;
-		
-	
+		return model;	
 	}
-	
-	
 }

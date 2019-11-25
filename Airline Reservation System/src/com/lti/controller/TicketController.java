@@ -17,33 +17,36 @@ import com.lti.services.TicketsService;
 public class TicketController 
 {
 
-	@Autowired
-	TicketsService ticketsService;
+	//@Autowired
+	//TicketsService ticketsService;
 	
 	@Autowired
 	ScheduleService scheduleService;
 	
-	@RequestMapping(value="/bookTicket", method=RequestMethod.POST)
-	public ModelAndView bookTicket(int schedule_id, int no_of_passengers, String username, String seat_class)
+	@RequestMapping(value="/bookTicket", method=RequestMethod.GET)
+	public ModelAndView bookTicket(int schedule_id)
 	{
-		Tickets tck=new Tickets();
+		//Tickets tck=new Tickets();
 	
 		
 				
-		tck.setUsername(username);
-		tck.setNo_of_passengers(no_of_passengers);
-		tck.setSeat_class(seat_class);
-		
+		/*
+		 * tck.setUsername(username); tck.setNo_of_passengers(no_of_passengers);
+		 * tck.setSeat_class(seat_class);
+		 */
+		Schedule sch=new Schedule();
+		sch.setSchedule_id(schedule_id);
 		Schedule schedules=scheduleService.findSchedule(schedule_id);
-		tck.setSchedule(schedules);
+	//	tck.setSchedule(schedules);
 		
-		Tickets ticket=ticketsService.bookTicket(tck);
-		System.out.println(ticket);
+	//	Tickets ticket=ticketsService.bookTicket(tck);
+	//	System.out.println(ticket);
 		
 		ModelAndView model=null;
-		System.out.println(ticket);
+	//	System.out.println(ticket);
+		System.out.println(sch);
 		
-		if(ticket==null)
+		if(schedules==null)
 		{
 			model=new ModelAndView("addFailed");
 		}
@@ -51,8 +54,8 @@ public class TicketController
 		else
 		
 		{
-			model = new ModelAndView("addSuccess");
-			model.addObject("tickets", ticket);
+			model = new ModelAndView("bookFlight");
+			model.addObject("tickets", schedules);
 		}
 		
 			

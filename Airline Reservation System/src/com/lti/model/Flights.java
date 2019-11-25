@@ -29,6 +29,8 @@ public class Flights {
 	
 	String status;
 	
+	
+	
 	/*@OneToMany(mappedBy="flight")
 	List<Schedule> scheduleList;*/
 	
