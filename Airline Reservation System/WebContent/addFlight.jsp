@@ -3,33 +3,31 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+
 </head>
 <body>
 <center>
 <h1>ADD FLIGHT</h1>
 
-<form method="post" action="http://localhost:9090/UserMVC/AddUserController">
-Flight Number:<input type="text" name="flight_number">
-<br><br>
-From:<input type="text" name="from">
-<br><br>
-To:<input type="text" name="to">
-<br><br>
-Departure Time:<input type="time" name="departure">
 
-<br><br>
-Arrival Time:<input type="time" name="arrival">
+<form method="Post" action="addFlight">
 
+
+Flight Number:<input type="text" name="flight_number" >
 <br><br>
-Duration:<input type="time" name="duration">
+
+Sector ID:<input type="text" name="sector_id" >
+<br><br>
+
+Aircraft Type ID:<input type="text" name="aircraft_typeid" >
+<br><br>
+Status:<input type="text" name="status"s>
 
 
 <br><br>
 
 <input type="submit" value="Add">
+</form>
 <br><br>
 </body>
 </html>
-
-

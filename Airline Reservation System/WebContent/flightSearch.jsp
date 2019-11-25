@@ -7,32 +7,16 @@
 
 </head>
 <body>
-<input type="submit" value="Log In">
-<input type="submit" value="Register">
-<input type="submit" value="Admin">
 <center>
 <h1>FLIGHT SEARCH</h1>
 
-<form method="post" action="http://localhost:9090/UserMVC/AddUserController">
-From:<input type="text" name="from">
+<form method="post" action="flightSearch">
+From:<input type="text" name="source">
 <br><br>
-To:<input type="text" name="to">
-<br><br>
-Departure:<input type="date" name="departure">
 
+To:<input type="text" name="destination">
 <br><br>
-Return Date:<input type="date" name="return_ date">
 
-<br><br>
-Passengers:
- <select name="passengers">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-  <br><br>
 <input type="submit" value="Search">
 </form>
 </center>
