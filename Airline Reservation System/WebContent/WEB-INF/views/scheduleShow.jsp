@@ -38,7 +38,7 @@
         <td> ${s.arrival_time}<br></td>
            <td> ${s.departure_time}<br></td>
               <td> ${s.flight_date}<br></td>
-              <td>${s.flight_number}</td>
+              <td>${s.flight.flight_number}</td>
               <td><a href="bookTicket?schedule_id=${s.schedule_id}">Book this Flight</a> 
         
      </tr>
