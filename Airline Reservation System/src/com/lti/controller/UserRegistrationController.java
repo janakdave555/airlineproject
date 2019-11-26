@@ -35,7 +35,7 @@ System.out.println("in controller");
 			model=new ModelAndView("addFailed");
 		}else
 		{
-			model = new ModelAndView("loggedIn");
+			model = new ModelAndView("flightSearch");
 			model.addObject("userregistration", u);
 		}
 		

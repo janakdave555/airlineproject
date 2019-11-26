@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>  
+
+
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:tx="http://www.springframework.org/schema/tx"
@@ -8,26 +10,23 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
   		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
-  
+    
 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">    
 <property name="prefix" value="/WEB-INF/views/"></property>
-
+    
 <property name="suffix" value=".jsp"></property>
 </bean>
 <context:component-scan base-package="com.lti"></context:component-scan>
 <mvc:annotation-driven ></mvc:annotation-driven>
-<bean name="myFactory"
+<bean name="myFactory"   
   class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
    <property name="persistenceUnitName" value="myPu"/>
 </bean>
-
-
-
 
 <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
     <property name="entityManagerFactory" ref="myFactory" />
 </bean>
 
-<tx:annotation-driven/>
+<tx:annotation-driven/>    
 
 </beans>

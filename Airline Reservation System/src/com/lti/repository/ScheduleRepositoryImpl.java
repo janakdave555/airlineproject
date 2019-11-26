@@ -1,5 +1,6 @@
 package com.lti.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -60,13 +61,13 @@ public class ScheduleRepositoryImpl implements ScheduleRepository
 
 
 	@Override
-	public List<Schedule> findScheduleWithFlight(int flight_id) {
+	public List<Schedule> findScheduleWithFlight(int sector_id , Date date) {
 
 		Schedule schedule=new Schedule();
-		String q="select sch from Schedule sch where flight_id=?1";
+		String q="select sch from Schedule sch where sch.flight_date=?2 AND flight_id in (Select f from Flights f where f.sector.sector_id=?1)";
 		TypedQuery<Schedule> query =em.createQuery(q,Schedule.class);
-		query.setParameter(1, flight_id);
-		
+		query.setParameter(1, sector_id);
+		query.setParameter(2,date);
 		List<Schedule> list = query.getResultList();
 		for (Schedule li :list)
 		{

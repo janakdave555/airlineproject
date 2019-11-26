@@ -60,5 +60,19 @@ public class ScheduleController
 				
 				return model;
 			}
+	@RequestMapping(value="/add5",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
 			
+				
+		
+					model = new ModelAndView("addSchedule");
+				
+				
+				
+				return model;
+			}
+	
 }

@@ -54,4 +54,19 @@ public class AircraftController {
 		
 		return model;
 	}
+
+	@RequestMapping(value="/add1",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAircraft");
+				
+				
+				
+				return model;
+			}
 }

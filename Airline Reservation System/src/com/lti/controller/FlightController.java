@@ -63,5 +63,19 @@ public class FlightController
 		
 		return model;
 	}
+	@RequestMapping(value="/add4",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addFlight");
+				
+				
+				
+				return model;
+			}
 	
 }

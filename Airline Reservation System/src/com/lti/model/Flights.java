@@ -18,7 +18,26 @@ public class Flights {
 	@SequenceGenerator(sequenceName = "flight_seq", name = "flight_seq", allocationSize = 1)
 	int flight_id;
 	String flight_number;
+	int economic_fare;
+	int business_fare;
 	
+	
+	public int getEconomic_fare() {
+		return economic_fare;
+	}
+
+	public void setEconomic_fare(int economic_fare) {
+		this.economic_fare = economic_fare;
+	}
+
+	public int getBusiness_fare() {
+		return business_fare;
+	}
+
+	public void setBusiness_fare(int business_fare) {
+		this.business_fare = business_fare;
+	}
+
 	@ManyToOne
 	@JoinColumn(name="sector_id")  //Mapping between many flights to one sector
 	Sector sector;
@@ -38,11 +57,6 @@ public class Flights {
 	{
 		
 	}
-
-	
-
-	
-
 
 	public Flights(int flight_id, String flight_number, Sector sector, AircraftType aircraftType, String status) {
 		super();
@@ -66,28 +80,17 @@ public class Flights {
 		return flight_id;
 	}
 
-
-
 	public void setFlight_id(int flight_id) {
 		this.flight_id = flight_id;
 	}
-
-
 
 	public Sector getSector() {
 		return sector;
 	}
 
-
-
 	public void setSector(Sector sector) {
 		this.sector = sector;
 	}
-
-
-
-	
-
 
 	public int getFlights_id() {
 		return flight_id;
@@ -97,8 +100,6 @@ public class Flights {
 		this.flight_id = flights_id;
 	}
 
-
-
 	public String getFlight_number() {
 		return flight_number;
 	}
@@ -106,10 +107,6 @@ public class Flights {
 	public void setFlight_number(String flight_number) {
 		this.flight_number = flight_number;
 	}
-
-
-
-
 
 	public String getStatus() {
 		return status;
@@ -119,24 +116,10 @@ public class Flights {
 		this.status = status;
 	}
 
-
-
-
-
-
 	@Override
 	public String toString() {
-		return "Flights [flight_id=" + flight_id + ", flight_number=" + flight_number + ", sector=" + sector
-				+ ", aircraftType=" + aircraftType + ", status=" + status + "]";
+		return "Flights [flight_id=" + flight_id + ", flight_number=" + flight_number + ", economic_fare="
+				+ economic_fare + ", business_fare=" + business_fare + ", sector=" + sector + ", aircraftType="
+				+ aircraftType + ", status=" + status + "]";
 	}
-
-	
-
-
-
-
-
-
-
-	
 }

@@ -1,5 +1,7 @@
 package com.lti.repository;
 
+import java.util.List;
+
 import com.lti.model.Sector;
 
 public interface SectorRepository {
@@ -10,4 +12,6 @@ public interface SectorRepository {
 	public void deleteSector(Sector s);
 
 	public Sector findSectorId(String source , String destination);
+	
+	
 }

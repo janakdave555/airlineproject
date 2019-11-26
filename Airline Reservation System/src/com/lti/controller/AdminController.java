@@ -36,12 +36,25 @@ public class AdminController
 					model=new ModelAndView("addFailed");
 				}else
 				{
-					model = new ModelAndView("loggedIn");
+					model = new ModelAndView("adminModule");
 					model.addObject("adminregistration", a);
 				}
 				
 				return model;
 			}
 			
-
+	@RequestMapping(value="/addPage",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addModule");
+				
+				
+				
+				return model;
+			}
 }

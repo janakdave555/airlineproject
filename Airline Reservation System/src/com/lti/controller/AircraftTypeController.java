@@ -74,5 +74,20 @@ AircraftTypeService aircraftTypeService;
 		
 		
 	}
+	@RequestMapping(value="/add2",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAircraftType");
+				
+				
+				
+				return model;
+			}
+
 }
 

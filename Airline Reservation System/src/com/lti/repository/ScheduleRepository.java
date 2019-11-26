@@ -1,5 +1,6 @@
 package com.lti.repository;
 
+import java.sql.Date;
 import java.util.List;
 
 import com.lti.model.AircraftType;
@@ -11,6 +12,7 @@ public interface ScheduleRepository {
 	public Schedule updateSchedule(Schedule schedule);
 	public void deleteSchedule(Schedule schedule);
 	public Schedule findSchedule(int schedule_id);
-	public List<Schedule> findScheduleWithFlight(int flight_id);
+//	public List<Schedule> findScheduleWithFlight(int flight_id);
+	public List<Schedule> findScheduleWithFlight(int sector_id, Date date);
 
 }

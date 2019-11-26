@@ -1,52 +1,96 @@
 package com.lti.controller;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lti.model.Flights;
 import com.lti.model.Schedule;
 import com.lti.model.Tickets;
+import com.lti.services.FlightServices;
 import com.lti.services.ScheduleService;
 import com.lti.services.TicketsService;
 
 
 @Controller
+@SessionAttributes("Schedule")
 public class TicketController 
 {
 
-	//@Autowired
-	//TicketsService ticketsService;
+	@Autowired
+	FlightServices flightService;
+	@Autowired
+	TicketsService ticketsService;
 	
 	@Autowired
 	ScheduleService scheduleService;
+	List<Flights> flight;
 	
-	@RequestMapping(value="/bookTicket", method=RequestMethod.GET)
-	public ModelAndView bookTicket(int schedule_id)
+	@RequestMapping(value="/book", method=RequestMethod.POST)
+	public ModelAndView transfer(@RequestParam int schedule_id,@RequestParam int economic_fare,@RequestParam int business_fare)
 	{
-		//Tickets tck=new Tickets();
+		
+		ModelAndView model = new ModelAndView("bookTicket");
+		model.addObject("scheduleId", schedule_id);
+		model.addObject("economic_fare",economic_fare);
+		model.addObject("business_fare",business_fare);
 	
 		
-				
-		/*
-		 * tck.setUsername(username); tck.setNo_of_passengers(no_of_passengers);
-		 * tck.setSeat_class(seat_class);
-		 */
-		Schedule sch=new Schedule();
-		sch.setSchedule_id(schedule_id);
-		Schedule schedules=scheduleService.findSchedule(schedule_id);
-	//	tck.setSchedule(schedules);
+			
+			return model;
+		}
 		
-	//	Tickets ticket=ticketsService.bookTicket(tck);
-	//	System.out.println(ticket);
+	@RequestMapping(value="/bookSuccess",method = RequestMethod.POST)
+	public ModelAndView bookC()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("bookingSuccess");
+					
+				
+				return model;
+			}
+		
+	
+	
+	@RequestMapping(value="/bookTicketController", method=RequestMethod.POST)
+	public ModelAndView booked(HttpSession session,@RequestParam String username,@RequestParam String seat_class, @RequestParam int no_of_passengers,@RequestParam int schedule_id)
+	{
+		
+		System.out.println("in controller");
+		
+		Tickets tickets=new Tickets();
+	
+			
+		Schedule schedule=scheduleService.findSchedule(schedule_id);	  
+		
+
+		tickets.setUsername(username);
+		tickets.setSeat_class(seat_class);
+		tickets.setNo_of_passengers(no_of_passengers);
+		
+		tickets.setSchedule(schedule);
+		System.out.println("schedule-------------------------------------------------------\n");
+		System.out.println(schedule);
+
+		Tickets ticket1=ticketsService.bookTicket(tickets);
+		
+		
 		
 		ModelAndView model=null;
-	//	System.out.println(ticket);
-		System.out.println(sch);
 		
-		if(schedules==null)
+		if(ticket1==null)
 		{
 			model=new ModelAndView("addFailed");
 		}
@@ -54,14 +98,15 @@ public class TicketController
 		else
 		
 		{
-			model = new ModelAndView("bookFlight");
-			model.addObject("tickets", schedules);
+			model = new ModelAndView("addSuccess");
+			model.addObject("tickets", ticket1);
 		}
 		
 			
 			return model;
 		}
 		
-		
 	}
+
+	
 

@@ -1,6 +1,9 @@
 package com.lti.controller;
 
+import java.sql.Date;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,22 +31,22 @@ public class SearchController
 	@Autowired
 	SectorServices sectorServices;
 	
-	@Autowired
+	@Autowired   
 	FlightServices flightServices;
 	
 	
 	@Autowired
 	ScheduleService scheduleServices;
 
-	List<Flights> flight;
+	List<Flights> flight;    
 	List<Schedule>  schedule;
 	@RequestMapping(value="/flightSearch",method=RequestMethod.POST)
-	public ModelAndView flightSearch(@RequestParam String source,@RequestParam String destination)
+	public ModelAndView flightSearch(@RequestParam String source,@RequestParam String destination,@RequestParam Date date)
 	{
 		Airports a=new Airports();
 		//Airports a1=new Airports();
 		Sector s =new Sector();
-		
+		System.out.println("in controller search");
 		a.setAirport_name(source); 
 		a.setAirport_name(destination);
 		
@@ -67,18 +70,20 @@ public class SearchController
 		System.out.println(sector_id);
 		
 		
-		 flight=flightServices.findFlightsWithSector(sector_id);
-		System.out.println(flight);
+	
+     	System.out.println("Sector id se schedule");
 		
-		for(Flights f:flight)
+		schedule=scheduleServices.findScheduleWithFlight(sector_id,date);
+		
+		System.out.println(schedule);
+		
+		
+		for(Schedule sc:schedule)
 		{
-				int flight_id=f.getFlight_id();
-				System.out.println(flight_id);
-				
-				schedule=scheduleServices.findScheduleWithFlight(flight_id);
+			
 				System.out.println(schedule);
 			
-				
+				  
 				
 			}
 		if(schedule==null)
@@ -87,7 +92,12 @@ public class SearchController
 		}
 		else
 		{
-			System.out.println("#################"+schedule);
+			for(Schedule s1:schedule)
+			{
+				System.out.println(s1.getFlight());
+			}
+		
+		
 			model=new ModelAndView("scheduleShow");
 			model.addObject("schedule", schedule);
 		}

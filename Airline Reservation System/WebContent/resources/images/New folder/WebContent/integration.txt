@@ -1,0 +1,122 @@
+Aircraft
+
+
+
+	@RequestMapping(value="/add1",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAircraft1");
+				
+				
+				
+				return model;
+			}
+
+
+Aircrafttype
+
+
+	@RequestMapping(value="/add2",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAircraftType1");
+				
+				
+				
+				return model;
+			}
+
+airports
+
+@RequestMapping(value="/add3",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAirport1");
+				
+				
+				
+				return model;
+			}
+
+flight
+
+	@RequestMapping(value="/add4",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addFlight1");
+				
+				
+				
+				return model;
+			}
+	
+schedule
+
+@RequestMapping(value="/add5",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addSchedule1");
+				
+				
+				
+				return model;
+			}
+	
+sector
+@RequestMapping(value="/add6",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addSector1");
+				
+				
+				
+				return model;
+			}
+
+
+admin
+
+@RequestMapping(value="/addPage",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addModule");
+				
+				
+				
+				return model;
+			}

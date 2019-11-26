@@ -65,4 +65,19 @@ public class SectorController
 		return model;
 				
 	}
+	
+	@RequestMapping(value="/add6",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addSector");
+				
+				
+				
+				return model;
+			}
 }

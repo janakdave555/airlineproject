@@ -7,13 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
+             
+<form>
 
-  
 <table border = "1" cell-padding =5>
   <tr>
   		
-  		
-          <th>schedule id</th>
             <th>arrival time</th>
               <th>departure time</th>
             <th>flight date</th>
@@ -21,15 +20,18 @@
         </tr>
 
 
- <td> ${tickets.schedule_id}<br></td>
+ <tr>
         <td> ${tickets.arrival_time}<br></td>
            <td> ${tickets.departure_time}<br></td>
               <td> ${tickets.flight_date}<br></td>
-             
-
-
-
-<form>
+                <td><a href="bookTicket?schedule_id=${s.schedule_id}">Book this Flight</a> 
+              </tr>
+              <br><br>
+           
+              
+              </table>
+                 </form>
+              <form action="/booked" method="post">
 <h1>Book your flight</h1>
 
 
@@ -39,6 +41,8 @@ Username : <input type="text" name="username" >
 Seat Class : <input type="text" name="seat_class" >
 <br><br>
 No. of Passengers : <input type="text" name="no_of_passengers">
+<br><br>
+    <button type="submit">Submit</button>
 
 
 </form>

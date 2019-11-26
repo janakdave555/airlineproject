@@ -39,6 +39,21 @@ public class AirportsController
 		return model;
 	}
 	
+	@RequestMapping(value="/add3",method = RequestMethod.POST)
+	public ModelAndView addair()
+	
+	{
+				ModelAndView model=null;
+			
+				
+		
+					model = new ModelAndView("addAirport");
+				
+				
+				
+				return model;
+			}
+
 	
 	
 }

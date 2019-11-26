@@ -71,7 +71,7 @@ a {
 </head>
 <body>
 
-<form action="userLogin" method="Post">
+<form action="flightSearch.jsp" method="Post">
   <div class="container">
     <h1>Sign In</h1>
     <p>Please enter valid credentials to sign-in.</p>

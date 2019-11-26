@@ -8,7 +8,9 @@
 </head>
 <body>
 
-
+<form method="Post" action="findAircraftType">
+<input type="submit" value="find">
+<form>
 
 </body>
 </html>

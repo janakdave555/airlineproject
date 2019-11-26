@@ -1,5 +1,6 @@
 package com.lti.services;
 
+import java.sql.Date;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -44,9 +45,9 @@ public class ScheduleServiceImpl implements ScheduleService {
 	}
 
 	
-	public List<Schedule> findScheduleWithFlight(int flight_id)
+	public List<Schedule> findScheduleWithFlight(int sector_id, Date date)
 	{
-		return scheduleRepository.findScheduleWithFlight(flight_id);
+		return scheduleRepository.findScheduleWithFlight(sector_id,date);
 	}
 	
 }

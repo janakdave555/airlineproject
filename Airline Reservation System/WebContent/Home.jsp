@@ -180,7 +180,7 @@ article {
 
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="userLogin" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="loginIcon.png" alt="Avatar" class="avatar">
@@ -188,10 +188,10 @@ article {
 
     <div class="container">
       <label for="uname"><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Username" name="email" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="password" required>
         
       <button type="submit">Login</button>
       <label>
@@ -208,7 +208,7 @@ article {
 
 <div id="id02" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php" method="post">
+  <form class="modal-content animate" action="addUserRegister" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="Register_icon.png" alt="Avatar" class="avatar">
@@ -216,23 +216,33 @@ article {
 
     <div class="container">
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
-  
-  
-  <label for="First Name"><b>First Name</b></label>
-      <input type="text" placeholder="Enter First Name" name="fname" required>
-  
-  <label for="Last Name"><b>Last Name</b></label>
-      <input type="text" placeholder="Enter Last Name" name="lname" required>
-  
-  <label for="DOB"><b>Date Of Birth</b></label>
-      <input type="date" placeholder="Enter Date Of Birth" name="dob" required>
-  
-      <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-  
-      <label for="confirm-repeat"><b>Confirm Password</b></label>
-      <input type="password" placeholder="Confirm Password" name="confirm-repeat" required>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="title" name="title" required>
+
+<label for="First Name"><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="first_name" required>
+
+<label for="Last Name"><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="last_name" required>
+   
+    <label for="gender"><b>Gender</b></label>
+    <input type="text" placeholder="Gender" name="gender" required>
+    
+
+<label for="DOB"><b>Date Of Birth</b></label>
+    <input type="text" placeholder="Enter Date Of Birth" name="date_of_birth" required>
+
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
+
+   
+    <label for="status"><b>Status</b></label>
+    <input type="text" placeholder="Status" name="status" required>
+    
+    <label for="phone_no"><b>Phone Number</b></label>
+    <input type="text" placeholder="phone_no" name="phone_number" required>
       <hr>
       <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
   
@@ -252,7 +262,7 @@ article {
 
 <div id="id03" class="modal">
   
-  <form class="modal-content animate" action="adminmodule.html" method="post">
+  <form class="modal-content animate" action="/AirlineReservationSystem/adminLogin" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="admin.png" alt="Avatar" class="avatar">
@@ -260,10 +270,10 @@ article {
 
     <div class="container">
       <label for="uname"><b>Admin ID</b></label>
-      <input type="text" placeholder="Enter Admin ID" name="uname" required>
+      <input type="text" placeholder="Enter Admin ID" name="admin_name" required>
 
       <label for="psw"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter Password" name="admin_password" required>
         
       <button type="submit">Login</button>
       <label>
@@ -304,7 +314,7 @@ window.onclick = function(event) {
           background-size: 100% 100%;
         }
         </style>
-<form method="post" action="flightSearch">
+  <form action="flightSearch" method="post">
   <div class="row">
     <div class="col-25">
       <label for="From"><b>From</b></label>
@@ -321,8 +331,6 @@ window.onclick = function(event) {
       <input type="text" id="To" name="destination" placeholder="To" style="align:left;width:400px">
     </div>
   </div>
-  
-  
   <div >
     <div >
       <label for="to"><b>Date</b></label>
@@ -332,6 +340,9 @@ window.onclick = function(event) {
     </div>
   </div>
   <br>
+  
+  
+  <!--  
   <div >
     <div>
       <label for="to"><b>Return Date</b></label>
@@ -395,11 +406,13 @@ window.onclick = function(event) {
       </select>
     </div>
   </div>
+  
+  -->
   <br>
   <br>
   <div style="align:left;width:100px">
   <center>
-    <button type="submit">Submit</button>
+    <button type="submit">Search</button>
   </center>
   </div>
   </form>
